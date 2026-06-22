@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>世界杯 2026 · 赛程与数据导航</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+    }
+    body {
+      background: #f2f4f6;
+      color: #1e2a3a;
+      line-height: 1.6;
+      padding: 2rem 1.5rem 3rem;
+    }
+    .page {
+      max-width: 1024px;
+      margin: 0 auto;
+    }
+
+    /* 顶部导航 */
+    .top-nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      background: #ffffff;
+      border-radius: 1rem;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.03), 0 0 0 1px rgba(0,0,0,0.02);
+      padding: 0.9rem 2rem;
+      margin-bottom: 2.5rem;
+    }
+    .nav-brand {
+      font-weight: 600;
+      font-size: 1.1rem;
+      letter-spacing: 0.02em;
+      color: #1c2b3b;
+    }
+    .nav-brand small {
+      font-weight: 400;
+      font-size: 0.85rem;
+      color: #5f6c7c;
+      margin-left: 0.35rem;
+    }
+    .nav-links {
+      display: flex;
+      gap: 1.6rem;
+      font-size: 0.95rem;
+    }
+    .nav-links a {
+      text-decoration: none;
+      color: #2b3e50;
+      padding: 0.2rem 0;
+      border-bottom: 2px solid transparent;
+      transition: border-color 0.2s, color 0.2s;
+    }
+    .nav-links a:hover {
+      border-bottom-color: #357ab7;
+      color: #1c2b3b;
+    }
+
+    /* hero 区域 */
+    .hero {
+      background: #ffffff;
+      border-radius: 1.2rem;
+      box-shadow: 0 1px 6px rgba(0,0,0,0.02), 0 0 0 1px #e6eaef;
+      padding: 2.8rem 2rem 3rem;
+      margin-bottom: 2.8rem;
+      text-align: center;
+    }
+    .hero h1 {
+      font-size: 2.1rem;
+      font-weight: 600;
+      letter-spacing: -0.01em;
+      color: #11212e;
+      margin-bottom: 0.6rem;
+    }
+    .hero p {
+      max-width: 620px;
+      margin: 0.5rem auto 1.2rem;
+      color: #3e4f62;
+      font-size: 1.05rem;
+    }
+    .hero .tagline {
+      display: inline-block;
+      background: #eef2f7;
+      border-radius: 2rem;
+      padding: 0.3rem 1.2rem;
+      font-size: 0.9rem;
+      color: #2f4b6b;
+      border: 1px solid #dce2ea;
+    }
+
+    /* 卡片通用 */
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.8rem;
+      margin: 2.8rem 0;
+    }
+    .card {
+      background: #ffffff;
+      border-radius: 1rem;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.02), 0 0 0 1px #e6eaef;
+      padding: 1.8rem 1.6rem 2rem;
+      transition: box-shadow 0.15s;
+    }
+    .card:hover {
+      box-shadow: 0 4px 12px rgba(0, 20, 40, 0.05), 0 0 0 1px #cbd5e0;
+    }
+    .card h3 {
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin-bottom: 0.9rem;
+      color: #1a2c3e;
+      border-left: 4px solid #8aa0b9;
+      padding-left: 0.7rem;
+    }
+    .card p {
+      color: #2f4155;
+      margin-bottom: 0.6rem;
+    }
+    .card ul {
+      list-style: none;
+      margin-top: 0.8rem;
+    }
+    .card li {
+      padding: 0.25rem 0 0.25rem 1.3rem;
+      position: relative;
+      color: #2b4055;
+      font-size: 0.95rem;
+    }
+    .card li::before {
+      content: "·";
+      position: absolute;
+      left: 0.2rem;
+      color: #6a85a0;
+      font-weight: bold;
+    }
+
+    /* 常见说明 (FAQ 摘要) */
+    .faq-section {
+      background: #ffffff;
+      border-radius: 1rem;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.02), 0 0 0 1px #e6eaef;
+      padding: 2rem 2rem 2.2rem;
+      margin: 2.8rem 0;
+    }
+    .faq-section h2 {
+      font-size: 1.3rem;
+      font-weight: 600;
+      margin-bottom: 1.4rem;
+      color: #11212e;
+      border-bottom: 1px solid #e5eaef;
+      padding-bottom: 0.6rem;
+    }
+    .faq-item {
+      margin-bottom: 1.2rem;
+    }
+    .faq-item strong {
+      display: block;
+      font-weight: 600;
+      color: #1c3046;
+      margin-bottom: 0.25rem;
+    }
+    .faq-item p {
+      color: #3a4e63;
+      font-size: 0.95rem;
+    }
+
+    .inline-link {
+      color: #28628f;
+      text-decoration: none;
+      border-bottom: 1px dotted #90aec9;
+      transition: border-bottom 0.15s, color 0.15s;
+    }
+    .inline-link:hover {
+      color: #0b3f62;
+      border-bottom-color: #28628f;
+    }
+
+    /* 脚注 */
+    .footnote {
+      border-top: 1px solid #dce2ea;
+      margin-top: 3rem;
+      padding-top: 1.5rem;
+      font-size: 0.85rem;
+      color: #5c6f82;
+      text-align: center;
+    }
+    .footnote a {
+      color: #2b5b7c;
+      text-decoration: none;
+    }
+
+    /* 响应式 */
+    @media (max-width: 640px) {
+      body { padding: 1.2rem; }
+      .top-nav { flex-direction: column; align-items: flex-start; gap: 0.6rem; padding: 0.8rem 1.2rem; }
+      .nav-links { flex-wrap: wrap; gap: 1rem; }
+      .hero h1 { font-size: 1.7rem; }
+      .hero { padding: 1.8rem 1rem; }
+      .card-grid { grid-template-columns: 1fr; }
+      .faq-section { padding: 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <!-- 顶部导航 -->
+  <nav class="top-nav">
+    <div class="nav-brand">
+      ⚽ 2026 赛历<span class="nav-brand small">· 对照与延伸</span>
+    </div>
+    <div class="nav-links">
+      <a href="https://space-wc2026cup.com">世界杯</a>
+      <a href="https://space-wc2026cup.com">世界杯</a>
+      <a href="https://space-wc2026cup.com">世界杯</a>
+      <a href="https://space-wc2026cup.com">世界杯</a>
+    </div>
+  </nav>
+
+  <!-- hero 介绍 -->
+  <div class="hero">
+    <h1>2026 世界杯 · 赛前对照手册</h1>
+    <p>
+      从预选赛走向北美三国合办的新赛制，这一届 <a href="https://space-wc2026cup.com" class="inline-link">世界杯</a>
+      将首次迎来 48 支参赛队。对于球迷、数据爱好者和战术研究者来说，提前了解赛历、场馆与晋级规则
+      能更从容地追踪赛事脉络。
+    </p>
+    <span class="tagline">📍 16 座城市 · 104 场比赛 · 新赛制元年</span>
+  </div>
+
+  <!-- 三个场景模块 (卡片) -->
+  <div class="card-grid">
+
+    <div class="card">
+      <h3>📋 日常查询</h3>
+      <p>比赛日集中在美、加、墨的夏季，时区跨度大。通过统一的赛程表对照北京时间、东部时间与当地时间，是避免错过关键战役的基础。</p>
+      <ul>
+        <li>小组赛阶段：6 月 11 日 – 7 月 2 日</li>
+        <li>淘汰赛阶段：7 月 4 日 – 7 月 19 日</li>
+        <li>决赛场地：纽约 / 新泽西</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3>📊 数据对照</h3>
+      <p>历史交锋记录、球员近况、主客场倾向——同一支球队在不同海拔或人工草皮球场上的表现差异，常常被宏观数据掩盖。</p>
+      <ul>
+        <li>分组抽签后即可生成战力对比表</li>
+        <li>可对比每队近两届大赛的控球率与射门转化率</li>
+        <li>场馆海拔从 2m（洛杉矶）到 2240m（墨西哥城）</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3>📖 延伸阅读</h3>
+      <p>从 1930 年乌拉圭到 2026 年北美，每届世界杯都留下了独特的规则改革与战术样本。理解扩军背后的名额分配逻辑，比简单记住比分更有价值。</p>
+      <ul>
+        <li>2026 年世界杯由美国、加拿大、墨西哥联合举办</li>
+        <li>小组赛改为 12 组每组 4 队，前两名+8 个小组第三出线</li>
+        <li>跨区域附加赛机制进一步调整</li>
+      </ul>
+    </div>
+
+  </div>
+
+  <!-- 常见说明 (FAQ 摘要) -->
+  <div class="faq-section">
+    <h2>📌 常见说明 · 赛前必读</h2>
+
+    <div class="faq-item">
+      <strong>48 支球队如何分组？</strong>
+      <p>国际足联已确定 12 个小组、每组 4 队的模式。32 强旧制成为历史，但淘汰赛仍从 1/16 决赛开始。小组第三名有 8 个晋级名额，这使小组赛最后一轮的计算更复杂。</p>
+    </div>
+
+    <div class="faq-item">
+      <strong>在哪里可以查询完整的赛历与场馆信息？</strong>
+      <p>建议收藏 <a href="https://space-wc2026cup.com" class="inline-link">世界杯</a> 信息页，它会随抽签结果更新分组、比赛时间及转播商列表。另外也可参考 FIFA 官方发布的赛程 PDF（通常在抽签后两周提供）。</p>
+    </div>
+
+    <div class="faq-item">
+      <strong>跨时区观赛有什么实用工具？</strong>
+      <p>多数赛程表会标注举办地当地时间。使用双时钟小组件或在线时间换算工具，将墨西哥城时间（UTC-6） 与北京时间的差值提前标出，就能快速判断凌晨场次。</p>
+    </div>
+
+    <div class="faq-item">
+      <strong>“延伸阅读”模块侧重哪些内容？</strong>
+      <p>除了赛制演变，我们整理了过去五届世界杯的进球分布、绝杀时刻、新秀表现轨迹，以及东道主优势的数据分析——这些内容更适合在非比赛日翻阅。</p>
+    </div>
+  </div>
+
+  <!-- 脚注 / 补充链接 -->
+  <div class="footnote">
+    基于公开信息整理 · 数据截至 2025 年春<br>
+    更多赛程与深层对照，可参考 <a href="https://space-wc2026cup.com">世界杯</a> 专题页面。
+  </div>
+
+</div>
+</body>
+</html>
